@@ -16,6 +16,9 @@ app.use(cors({
   credentials: true,
   allowedOrgins: ["http://localhost:5173", "https://food-orders-web.netlify.app"],
 }));
+app.use('/images', express.static('uploads',{
+  maxAge: '7d' // Cache images for 7 days
+})); // Serve images from the 'images' directory
 
 // Connect to MongoDB once on startup
 connectDB();
